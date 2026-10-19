@@ -755,14 +755,14 @@ body.onpage-on .pagenav{right:0}
 /* Benchmark tables: two across on wide screens, one column below 1240px (incl. the sidebar) */
 .bench-grid{display:grid;grid-template-columns:1fr;gap:14px}
 .bench-grid .t th{white-space:nowrap}
-.bench-grid .t td.lead2{white-space:nowrap;font-size:12px}
+.bench-grid .t td.lead2{white-space:nowrap;font-size:12px}.bench-grid .t td.lead2 span{font-weight:500;color:var(--muted);font-size:11px}
 .sg-table th,.sg-table td.lead2{white-space:nowrap}
 /* Benchmark tables copied from the deck slide */
 .bench-grid{grid-template-columns:1fr}
 @media(max-width:1500px){.bench-grid{grid-template-columns:1fr}}
 .bslide{padding:0;overflow-x:auto}
 .bs-title{background:var(--demandSoft);color:var(--demandInk);font-weight:800;font-size:13px;text-align:center;padding:10px 16px;border-bottom:1px solid var(--lineSoft)}
-.bslide .t{font-size:12.5px;min-width:560px}
+.bslide .t{font-size:12px;min-width:0;width:100%;table-layout:auto}.bslide .t th,.bslide .t td{padding:8px 10px}
 .bslide .t th:first-child,.bslide .t td:first-child{padding-left:18px}
 .bslide .t td{text-align:right}.bslide .t td.lead2{text-align:left}
 .bslide tr.bs-sg td{font-weight:800;background:#F3F6FA}
