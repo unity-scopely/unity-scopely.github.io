@@ -1264,12 +1264,13 @@ V.ua_demand=`
   <div class="card">
    <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Unity Ads vs ironSource Ads, same title, same window</div>
    ${vbars(shared.map(s=>shortName(s.n)),[{name:'Unity Ads',v:shared.map(s=>+s.u.toFixed(2)),c:C.demand},{name:'ironSource Ads',v:shared.map(s=>+s.i.toFixed(2)),c:C.orange}],{fmt:v=>usd(v)})}
-   <div class="cap">Unity Ads clears higher on four of five shared titles. Stumble Guys is close, the one title where both bid in the same LevelPlay auction.</div>
+   <div class="cap">Unity Ads clears higher on four of five shared titles. 91% of your Unity Ads payout is Unity's own demand; only Stumble Guys lets us compete in a live auction.</div>
+   <div class="cap" style="margin-top:8px"><b>Why Yahtzee clears $24 and Stumble Guys $3.</b> Format first: 90% of Yahtzee's Unity Ads payout is rewarded video, which clears at $34 on iOS and $31 on Android, against $7 to $8 for its interstitials. Stumble Guys is half interstitial, and its Android half clears at $1.32. Audience second: Yahtzee players are the US casual, purchase-ready audience that puzzle and casual advertisers bid hardest for, so the same rewarded slot is worth more there. Scrabble GO sits between the two: interstitial-led, iOS-heavy, $4.34.</div>
   </div>
   <div class="card">
-   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Payout by advertiser category · Scrabble GO + Stumble Guys, Q3</div>
-   ${hbars(ADV.cats.map(c=>({label:c.name,v:c.rev,c:c.name.startsWith('Long')?C.supplyL:c.name.startsWith('Brand')?C.amber:C.demand,sub:(c.share*100).toFixed(0)+'% · '+(c.chg==null?'new':pct(c.chg)+' vs Q2')+' · '+usd(c.ecpm)+' eCPM'})),{fmt:v=>money(v),lblW:225,rh:50,fs:13})}
-   <div class="cap">${ADV.paying} advertisers paid over $100; the top 10 are ${(ADV.top10*100).toFixed(0)}% and no single buyer is over ${(Math.max(...Object.values(ADV.byTitle).map(t=>t.top1))*100).toFixed(0)}% of a title. Puzzle and match-3 buyers pay the most per impression; brand demand is the one category that fell.</div>
+   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Share of payout by advertiser category · Scrabble GO + Stumble Guys, Q3</div>
+   ${hbars(ADV.cats.map(c=>({label:c.name,v:c.share*100,c:c.name.startsWith('Long')?C.supplyL:c.name.startsWith('Brand')?C.amber:C.demand,sub:(c.chg==null?'new this quarter':pct(c.chg)+' vs Q2')})),{fmt:v=>v.toFixed(0)+'%',lblW:225,rh:50,fs:13})}
+   <div class="cap">${ADV.paying} advertisers bought your inventory; the top 10 are ${(ADV.top10*100).toFixed(0)}% and no single buyer is over ${(Math.max(...Object.values(ADV.byTitle).map(t=>t.top1))*100).toFixed(0)}% of a title. Puzzle and match-3 buyers pay the most per impression; brand demand is the one category that fell. Shares only, by design: the buyers are not named and their spend is not shown.</div>
   </div>
  </div>
  ${sec('Where the eCPM upside is','star','s')}
@@ -1969,11 +1970,12 @@ V.unity=`
   <div class="card">
    <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Unity Ads vs ironSource Ads eCPM, same title, same window</div>
    ${vbars(shared.map(s=>shortName(s.n)),[{name:'Unity Ads',v:shared.map(s=>+s.u.toFixed(2)),c:C.demand},{name:'ironSource Ads',v:shared.map(s=>+s.i.toFixed(2)),c:C.orange}],{fmt:v=>usd(v)})}
-   <div class="cap">Unity Ads clears higher on four of five shared titles. ${(DATA.cometShare*100).toFixed(0)}% of your Unity Ads payout is Unity's own demand; only Stumble Guys lets us compete in a live auction.</div>
+   <div class="cap">Unity Ads clears higher on four of five shared titles. 91% of your Unity Ads payout is Unity's own demand; only Stumble Guys lets us compete in a live auction.</div>
+   <div class="cap" style="margin-top:8px"><b>Why Yahtzee clears $24 and Stumble Guys $3.</b> Format first: 90% of Yahtzee's Unity Ads payout is rewarded video, which clears at $34 on iOS and $31 on Android, against $7 to $8 for its interstitials. Stumble Guys is half interstitial, and its Android half clears at $1.32. Audience second: Yahtzee players are the US casual, purchase-ready audience that puzzle and casual advertisers bid hardest for, so the same rewarded slot is worth more there. Scrabble GO sits between the two: interstitial-led, iOS-heavy, $4.34.</div>
   </div>
   <div class="card">
-   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Payout by advertiser category · Scrabble GO + Stumble Guys, Q3 vs Q2</div>
-   ${hbars(ADV.cats.map(c=>({label:c.name,v:c.rev,c:c.name.startsWith('Long')?C.supplyL:c.name.startsWith('Brand')?C.amber:C.demand,sub:(c.share*100).toFixed(0)+'% · '+(c.chg==null?'new':pct(c.chg)+' vs Q2')+' · '+usd(c.ecpm)+' eCPM'})),{fmt:v=>money(v),lblW:225,rh:46,fs:13})}
+   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Share of payout by advertiser category · Scrabble GO + Stumble Guys, Q3 vs Q2</div>
+   ${hbars(ADV.cats.map(c=>({label:c.name,v:c.share*100,c:c.name.startsWith('Long')?C.supplyL:c.name.startsWith('Brand')?C.amber:C.demand,sub:(c.share*100).toFixed(0)+'% · '+(c.chg==null?'new':pct(c.chg)+' vs Q2')+' · '+usd(c.ecpm)+' eCPM'})),{fmt:v=>money(v),lblW:225,rh:46,fs:13})}
    <div class="cap">${ADV.paying} advertisers paid over $100; no single buyer is over ${(Math.max(...Object.values(ADV.byTitle).map(t=>t.top1))*100).toFixed(0)}% of a title. Puzzle and match-3 buyers pay the most; brand demand is the one category that fell. No advertiser named.</div>
   </div>
  </div>
