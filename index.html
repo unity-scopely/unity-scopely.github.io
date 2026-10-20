@@ -1975,8 +1975,8 @@ V.unity=`
   </div>
   <div class="card">
    <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Share of payout by advertiser category · Scrabble GO + Stumble Guys, Q3 vs Q2</div>
-   ${hbars(ADV.cats.map(c=>({label:c.name,v:c.share*100,c:c.name.startsWith('Long')?C.supplyL:c.name.startsWith('Brand')?C.amber:C.demand,sub:(c.share*100).toFixed(0)+'% · '+(c.chg==null?'new':pct(c.chg)+' vs Q2')+' · '+usd(c.ecpm)+' eCPM'})),{fmt:v=>money(v),lblW:225,rh:46,fs:13})}
-   <div class="cap">${ADV.paying} advertisers paid over $100; no single buyer is over ${(Math.max(...Object.values(ADV.byTitle).map(t=>t.top1))*100).toFixed(0)}% of a title. Puzzle and match-3 buyers pay the most; brand demand is the one category that fell. No advertiser named.</div>
+   ${hbars(ADV.cats.map(c=>({label:c.name,v:c.share*100,c:c.name.startsWith('Long')?C.supplyL:c.name.startsWith('Brand')?C.amber:C.demand,sub:(c.chg==null?'new this quarter':pct(c.chg)+' vs Q2')})),{fmt:v=>v.toFixed(0)+'%',lblW:225,rh:46,fs:13})}
+   <div class="cap">${ADV.paying} advertisers bought your inventory; no single buyer is over ${(Math.max(...Object.values(ADV.byTitle).map(t=>t.top1))*100).toFixed(0)}% of a title. Puzzle and match-3 buyers pay the most per impression; brand demand is the one category that fell. Shares only, by design: buyers are not named and their spend is not shown.</div>
   </div>
  </div>
  ${sec('The ask: SDK 4.20.1 on every title in Q4, Scrabble GO first','star','s')}
