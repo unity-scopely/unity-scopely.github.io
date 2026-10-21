@@ -1172,7 +1172,7 @@ V.overview=`
  <div class="card" style="padding:12px 30px;margin-top:14px">
   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin:10px 0 4px">What you told us in May, and where we picked it up</div>
   ${nlist([
-   ['LevelPlay.','You told us parallel bidding with MAX and Nimbus was working, that you were looking at Metica, and that a wish list of LevelPlay needs would follow. The LevelPlay pages cover what has moved since. We would still love that wish list before Q1 planning.'],
+   ['LevelPlay.','You told us you were running parallel bidding with MAX and Nimbus, that you were looking at Metica, and that a wish list of LevelPlay needs would follow. The LevelPlay pages cover what has moved since. We would still love that wish list before Q1 planning.'],
    ['MONOPOLY GO.','Ads are a year or more out, and UA drives every ad decision. So we keep the SDK integration ready and do not put a date on it.'],
    ['Offerwall.','Performance had slipped, the messaging needed a rethink, DAU was down and Garden Joy had gone, so the offerwall was a lower priority for you. That is why the Offerwall page is about reach, starting with the moves that ask the least of your team.'],
   ])}
@@ -1606,7 +1606,7 @@ V.levelplay=`
  ${BENCH_BLOCK}
  ${sec('Stumble Guys today, and the next title','plan','s')}
  <div>
-  <div class="callbox"><h4>Proposal: A/B test LevelPlay on one more title in Q4</h4><p><b>Stumble Guys first.</b> The renewal proposal for Stumble Guys on LevelPlay is ready and comes to you separately; the A/B test below is how a second title would join it.</p><p>Scrabble GO is the largest candidate and already first for 4.20.1, so both tests share one engineering window. Yahtzee with Buddies is the smaller alternative. Success metric: ARPDAU on the LevelPlay arm, retention read alongside through Ad UX control.</p><p><b>From our May conversation:</b> parallel bidding with MAX and Nimbus is working for you and you are looking at Metica. The wish list of LevelPlay product needs you offered then is still open; it is the most useful input we could take into Q1 planning.</p><p><b>Already done:</b> Stumble Guys moved to LevelPlay SDK 9.2 on Aug 4, so dynamic loading on rewarded video has been working for you since Sep 3 (latency more than halved, see above). The same move on the Unity Ads SDK is next: 4.20.1 is the quickest latency win left on the other titles.</p><p style="margin-bottom:0"><b>Where we'd like deeper collaboration.</b> Supply signal value exploration: work together on identifying new signals that can be provided through the mediation layer to improve demand competition and supply. Early feature access and design input: first access to relevant LevelPlay / Vector capabilities, and a real seat shaping how they're built (UX controls, dynamic bid floors). Support for agentic workflows: what expectations do you have of your ad tech partners, and how can LevelPlay support from integration through to optimization?</p></div>
+  <div class="callbox"><h4>Proposal: A/B test LevelPlay on one more title in Q4</h4><p><b>Stumble Guys first.</b> The renewal proposal for Stumble Guys on LevelPlay is ready and comes to you separately; the A/B test below is how a second title would join it.</p><p>Scrabble GO is the largest candidate and already first for 4.20.1, so both tests share one engineering window. Yahtzee with Buddies is the smaller alternative. Success metric: ARPDAU on the LevelPlay arm, retention read alongside through Ad UX control.</p><p><b>From our May conversation:</b> you are running parallel bidding with MAX and Nimbus and looking at Metica; we would like to hear how the Nimbus path has gone for you, positive or negative. The wish list of LevelPlay product needs you offered then is still open; it is the most useful input we could take into Q1 planning.</p><p><b>Already done:</b> Stumble Guys moved to LevelPlay SDK 9.2 on Aug 4, so dynamic loading on rewarded video has been working for you since Sep 3 (latency more than halved, see above). The same move on the Unity Ads SDK is next: 4.20.1 is the quickest latency win left on the other titles.</p><p style="margin-bottom:0"><b>Where we'd like deeper collaboration.</b> Supply signal value exploration: work together on identifying new signals that can be provided through the mediation layer to improve demand competition and supply. Early feature access and design input: first access to relevant LevelPlay / Vector capabilities, and a real seat shaping how they're built (UX controls, dynamic bid floors). Support for agentic workflows: what expectations do you have of your ad tech partners, and how can LevelPlay support from integration through to optimization?</p></div>
  </div>`;
 
 /* ---------- Unity Exchange ---------- */
@@ -1843,7 +1843,7 @@ V.twoway=`
   <div class="card" style="padding:12px 30px">${nlist([
    ['Targets.','Your ad revenue and ARPDAU targets for Q4 and Q1, and how the team is measured on them?'],
    ['Planning cycle.','When do Q1 roadmap and engineering priorities lock, and where does an SDK or mediation ticket need to land to make the cut?'],
-   ['Share.','Nimbus now carries a growing share of rewarded on six titles and CloudX started on Wheel of Fortune. What are you seeing with each outside MAX, and what would make you consolidate more with one?'],
+   ['Share.','Nimbus calls us for rewarded on six titles alongside MAX, and CloudX started on Wheel of Fortune. Has running Unity through Nimbus been positive or negative for you, and is there anything from it you would want LevelPlay to learn from?'],
    ['What is changing.','New titles, the MONOPOLY GO ads timeline, platform or privacy changes we should plan around?'],
    ['MONOPOLY GO, when ads come.','Is hybrid monetization on the roadmap, and would you want LevelPlay to optimize floors, ad load and the ad experience for you, or keep that in-house as you have said before? Our game design team has a full MONOPOLY GO teardown, being refreshed now, that we can walk through with that team separately.'],
    ['The late-October iOS SDK upgrade.','Your UA team is upgrading the Unity Ads SDK on iOS for UA lift. Does the same build carry the monetization SDK to 4.20.1, so we read both at once?'],
@@ -2080,20 +2080,20 @@ V.unity=`
    <table class="t" style="min-width:420px"><thead><tr><th style="padding-left:30px">Mediation</th><th style="padding-right:30px">Formats · titles</th></tr></thead><tbody>
    ${DATA.MED.meds.map(m=>{const lab={max:'MAX',levelplay:'LevelPlay',nimbus:'Nimbus',cloudx:'CloudX'}[m.med]||m.med;return '<tr><td class="lead2" style="padding-left:30px">'+lab+'</td><td style="padding-right:30px;font-size:12px;color:var(--body)">'+m.fmts.map(f=>f.toLowerCase()).join(', ')+' · '+m.titles.slice(0,6).map(t=>t.t).join(', ')+(m.titles.length>6?' +'+(m.titles.length-6):'')+'</td></tr>';}).join('')}
    </tbody></table>
-   <div class="cap" style="padding:8px 30px 4px">Nimbus runs beside MAX on the same titles, rewarded only, as a parallel bidding path. CloudX appears for the first time in Q3, on Wheel of Fortune, as a first look ahead of MAX.</div>
+   <div class="cap" style="padding:8px 30px 4px">Nimbus also calls Unity Ads on the same titles, rewarded only. CloudX appears for the first time in Q3, on Wheel of Fortune, as a first look ahead of MAX. How the two paths are sequenced on your side is not visible to us.</div>
   </div>
   <div class="card" style="padding:10px 0;overflow-x:auto">
    <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;padding:8px 30px 4px">Where Nimbus runs beside MAX</div>
    <table class="t" style="min-width:320px"><thead><tr><th style="padding-left:30px">Title</th><th style="padding-right:30px">Format</th></tr></thead><tbody>
    ${DATA.MED.nimbus.filter(r=>r.nim>500).map(r=>'<tr><td class="lead2" style="padding-left:30px">'+r.title+'</td><td style="padding-right:30px">'+r.fmt+'</td></tr>').join('')}
    </tbody></table>
-   <div class="cap" style="padding:8px 30px 4px">Nimbus and MAX both call Unity Ads on these placements, so we see the same titles through two doors. Which door wins more often is your data, not ours; that is the question below.</div>
+   <div class="cap" style="padding:8px 30px 4px">Nimbus and MAX both call Unity Ads on these placements, so we see the same titles through two doors. Which door wins, and whether the second one has helped, is your data, not ours; that is the question below.</div>
   </div>
  </div>
  <div class="card" style="padding:12px 30px;margin-top:12px">
   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin:10px 0 4px">What we would like to understand</div>
   ${nlist([
-   ['How is Nimbus going for you?','In May you said parallel bidding with MAX and Nimbus was working well. We see it on six rewarded placements now. What do you see on the Nimbus side that MAX does not show: win rate, price lift, latency?'],
+   ['How is Nimbus going for you?','In May you mentioned parallel bidding with MAX and Nimbus. We see Unity Ads called through Nimbus on six rewarded placements. Has it been positive or negative for you overall, and is there anything from that setup you would want carried into LevelPlay?'],
    ['What does CloudX look like on Wheel of Fortune?','It started this quarter as a first look before MAX. We see the Unity Ads payout that reaches it, not the lift you measure. If you share the test read, we can compare it with what LevelPlay sees on Stumble Guys with one auction and one set of floors.'],
    ['Which titles stay on MAX, and is a second LevelPlay title on the table?','Stumble Guys is the only title where we compete in a live auction. The A/B proposal on the LevelPlay page is built for the title you pick.'],
   ])}
@@ -2265,7 +2265,7 @@ V.plan_q=V.plan.replace('<div class="lead">Q4 plan</div>','<div class="lead">Q4 
   <div class="card" style="padding:12px 30px">${nlist([
    ['Targets.','Your ad revenue and ARPDAU targets for Q4 and Q1, and how the team is measured on them?'],
    ['Planning cycle.','When do Q1 roadmap and engineering priorities lock, and where does an SDK or mediation ticket need to land?'],
-   ['Share.','Nimbus now carries a growing share of rewarded on six titles and CloudX started on Wheel of Fortune. What are you seeing with each outside MAX, and what would make you consolidate more with one?'],
+   ['Share.','Nimbus calls us for rewarded on six titles alongside MAX, and CloudX started on Wheel of Fortune. Has running Unity through Nimbus been positive or negative for you, and is there anything from it you would want LevelPlay to learn from?'],
    ['Offerwall.','How has the player experience been, have competitors approached you, and which second currency would you add per title?'],
    ['MONOPOLY GO, when ads come.','Is hybrid monetization on the roadmap, and would you want LevelPlay to optimize floors, ad load and the ad experience, or keep that in-house as you have said before? Our game design team has a full MONOPOLY GO teardown, being refreshed now, that we can walk through with that team separately.'],
    ['The late-October iOS SDK upgrade.','Your UA team is upgrading the Unity Ads SDK on iOS for UA lift. Does the same build carry the monetization SDK to 4.20.1, so we read both at once?'],
