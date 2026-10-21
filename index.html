@@ -1658,7 +1658,7 @@ V.adquality=`
    <tr><td>CTR · quality CTR</td><td class="n">27.4% · 6.54%</td><td>Bounce rate</td><td class="n">39.3%</td></tr>
    <tr><td>Ad escape rate</td><td class="n">7.63%</td><td>Avg ad duration</td><td class="n">7 sec</td></tr>
    </tbody></table>
-   <div class="shotme" style="margin-top:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden"><img src="assets/adquality_stumble.png" style="width:100%;display:block" alt="Ad Quality analysis, Stumble Guys"></div></div>
+   <div class="shotme big" style="margin-top:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden"><img src="assets/adquality_stumble.png" style="width:100%;display:block" alt="Ad Quality analysis, Stumble Guys"></div></div>
    ${nlist([
     ['Two shopping-app advertisers churn players at 5.9% and 6.1%,','about four times the title average, on 7M to 8M impressions each. They are the first names to put through the churn-by-advertiser read.'],
     ['Quality CTR is 6.5% against a 27.4% CTR.','Roughly three clicks in four are not deliberate; a 39% bounce rate says the same thing from the other side.'],
@@ -1674,7 +1674,7 @@ V.adquality=`
    <tr><td>CTR · quality CTR</td><td class="n">41.5% · 5.37%</td><td>Bounce rate</td><td class="n">14.9%</td></tr>
    <tr><td>Ad escape rate</td><td class="n">13.7%</td><td>Avg ad duration</td><td class="n">11 sec</td></tr>
    </tbody></table>
-   <div class="shotme" style="margin-top:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden"><img src="assets/adquality_scrabble.png" style="width:100%;display:block" alt="Ad Quality analysis, Scrabble GO"></div></div>
+   <div class="shotme big" style="margin-top:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden"><img src="assets/adquality_scrabble.png" style="width:100%;display:block" alt="Ad Quality analysis, Scrabble GO"></div></div>
    ${nlist([
     ['1.94M impressions is a small slice of what Scrabble GO serves.','The Unity Ads side is not in the data yet: it needs SDK 4.19 or newer. That is the second reason for 4.20.1.'],
     ['Three merge and puzzle advertisers churn at 2.1% to 2.5%,','four to five times the 0.52% title average, from a few tens of thousands of impressions each.'],
@@ -1963,7 +1963,7 @@ V.unity=`
  </div>
  <div class="grid g2" style="margin-top:14px">
   <div class="card">
-   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Payout by SDK version, weekly, Jan 1 to Oct 11, 2026</div>
+   <div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Payout by SDK version, weekly, Jan 5 to Oct 19, 2026</div>
    ${(()=>{const S=DATA.SDKY;const col={'4.16.05':C.demand,'4.17.00':'#0A4FA0','4.16.06':C.demandL,'4.16.01':'#8FB8E8','4.12.04':C.amber,'4.14.00':C.orange};const lab=S.weeks.map(w=>{const d=new Date(w+'T00:00:00');return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});});return lines(lab,[...S.keys.map(k=>({name:'SDK '+k,v:S.series[k],c:col[k]||C.supply,fill:k==='4.16.05',w:k==='4.16.05'?2.8:2,endLabel:k==='4.16.05'})),{name:'Other',v:S.series.Other,c:C.prev,dash:true,endLabel:false}],{fmt:v=>money(v),h:260,ticks:4});})()}
    <div class="cap">Weekly payout. 4.14.00 carried the account through June; 4.16.05 took over in July and is still the base. 4.17.00 (Scrabble, Wheel of Fortune) and 4.16.06 (Stumble Guys) came in during September; the last week is partial.</div>
   </div>
