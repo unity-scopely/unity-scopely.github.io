@@ -1674,7 +1674,7 @@ V.vector=`
   </div>
   <div class="chk locked"><h4>Additional permission required</h4>
    <div class="chk-item"><span class="cic">🔒</span><div><b>Google Analytics linking <span class="tag-todo" style="margin-left:6px">the one to do now</span></b><span>Adds behavioral context and player engagement signals that attribution alone cannot provide. Link the GA property in the Unity Dashboard, then grant Unity Ads access through Developer Data. No Editor upgrade, no SDK change.</span></div></div>
-   <div class="chk-item"><span class="cic">◻︎</span><div><b>Runtime data (Diagnostics) <span class="tag-ask" style="margin-left:6px">later</span></b><span>Unlocks runtime signals that help provide additional context on how players experience the game. Available on recent Unity Editor versions and your titles are on Unity 6, so the version is not the blocker. Use for Ads needs its own permission under Developer Data; Unity is publishing official guidance on runtime data shortly, and we will bring that to you rather than guess here.</span></div></div>
+   <div class="chk-item"><span class="cic">◻︎</span><div><b>Runtime data (Diagnostics) <span class="tag-ask" style="margin-left:6px">later</span></b><span>Unlocks runtime signals that help provide additional context on how players experience the game. Needs a recent Unity Editor, 6.0 or later, and the live builds of each title shipped on it. We have heard your titles are on 6.0; what we cannot see from our side is the Editor version the shipped builds actually run on, so that is the one thing to confirm with your developers. Nothing else to switch on until you decide to share runtime data; Unity is finalizing its guidance on that and we will bring it to you rather than guess here.</span></div></div>
    <div class="chk-item"><span class="cic">◻︎</span><div><b>Unity IAP SDK <span class="tag-ask" style="margin-left:6px">to confirm</span></b><span>Strengthens purchase validation and revenue visibility.</span></div></div>
    <div class="chk-item"><span class="cic">◻︎</span><div><b>Developer Data Framework <span class="tag-ask" style="margin-left:6px">with GA</span></b><span>Enables Unity Ads products and services to use eligible runtime and behavioral signals for optimization. One consent in the Unity Dashboard; it is what turns a linked GA property into a signal.</span></div></div>
   </div>
@@ -1685,6 +1685,7 @@ V.vector=`
    ['Link Google Analytics on the monetization titles.','One property per app in the Unity Dashboard; we bring the guide and a 15-minute walkthrough with your analytics owner.'],
    ['Grant the Developer Data permission for Unity Ads.','The consent that lets Vector use the linked signals. Same session.'],
    ['Confirm the Android license key.','One check with your dev team; standard setup, no permission needed. MMP postbacks are already flowing.'],
+   ['Confirm the Editor version of the live builds.','Ask your developers which Unity Editor version each shipped title runs on; 6.0 or later is the eligible version. A yes keeps the runtime option open for later. No Diagnostics setting to change now.'],
   ])}
  </div>
  <div class="note-row">Wording follows Unity's Vector data activation one-pager (July 2026). Where a figure is not published, we say so rather than estimate.</div>`;
