@@ -980,9 +980,19 @@ function flywheel(){
  g+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#fff" stroke="#E2E5EA" stroke-width="3"/><text x="'+cx+'" y="'+(cy-4)+'" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1" fill="#667085">UNITY</text><text x="'+cx+'" y="'+(cy+16)+'" text-anchor="middle" font-size="19" font-weight="900" fill="#181A20">Vector</text>';
  return '<svg class="chart" viewBox="0 0 670 560" preserveAspectRatio="xMidYMid meet" style="max-width:480px;display:block;margin:0 auto">'+g+'</svg>';
 }
+const VF_INS=[
+   {t:'LevelPlay auction data (Stumble Guys)',on:true},
+   {t:'Ad Quality (Stumble Guys, Scrabble GO)',on:true},
+   {t:'Unity Ads SDK 4.16+ on every title',on:true},
+   {t:'Google Analytics linking',on:false},
+   {t:'MMP postbacks',on:true},
+   {t:'Developer Data permission for Unity Ads',on:false},
+ ];
+const VF_OUTS=['Fewer blind spots on player behavior','Game context it does not have to infer','Purchase and value signals validated','Earlier learning on your titles'];
+const VF_HUB='one model, one complete picture; no single signal maps to a single result';
 function vectorFlow(ins, outs, hub){
  const W=1000,H=60+Math.max(ins.length,outs.length)*58; const hx=512, hy=H/2;
- let g='<text x="30" y="26" font-size="11" font-weight="700" fill="'+C.muted+'" letter-spacing="2">SIGNALS IN</text><text x="700" y="26" font-size="11" font-weight="700" fill="'+C.muted+'" letter-spacing="2">WHAT IMPROVES</text>';
+ let g='<text x="30" y="26" font-size="11" font-weight="700" fill="'+C.muted+'" letter-spacing="2">SIGNALS IN</text><text x="700" y="26" font-size="11" font-weight="700" fill="'+C.muted+'" letter-spacing="2">WHAT THE MODEL SEES</text>';
  g+='<defs><marker id="vfarr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1F8A5B"/></marker></defs>';
  ins.forEach((it,i)=>{const y=46+i*58, on=it.on; g+='<rect x="30" y="'+y+'" width="310" height="38" rx="10" fill="'+(on?'#F2F0FF':'#fff')+'" stroke="'+(on?'#5B50D6':'#C9CDD3')+'" stroke-width="'+(on?1:1.2)+'"'+(on?'':' stroke-dasharray="5 4"')+'/>';
   g+='<text x="46" y="'+(y+24)+'" font-size="12.5" font-weight="600" fill="'+(on?C.ink:C.body)+'">'+(on?'✓ ':'◻︎ ')+it.t+'</text>';
@@ -1513,7 +1523,7 @@ V.lp_roadmap=`
   </div>
  </div>
  ${sec('The flywheel on your titles','users','s')}
- <div class="cap" style="margin-bottom:10px">Supply is one side of the same engine. Every signal you share on the monetization side feeds the model that prices your impressions, and the same model runs your UA campaigns.</div>
+ <div class="cap" style="margin-bottom:10px">Supply is one side of the same engine. Every signal you share on the monetization side feeds the model that prices your impressions, and the same model runs your UA campaigns. The right side is what the model gets to see, not a promise per signal: the signals work together, and the picture improves as a whole.</div>
  <div class="card shotme big" style="padding:16px 14px">${vectorFlow([
    {t:'LevelPlay auction data (Stumble Guys)',on:true},
    {t:'Ad Quality (Stumble Guys, Scrabble GO)',on:true},
@@ -1521,7 +1531,7 @@ V.lp_roadmap=`
    {t:'Google Analytics linking',on:false},
    {t:'MMP postbacks',on:true},
    {t:'Developer Data permission for Unity Ads',on:false},
- ],['Higher eCPM on your inventory','Dynamic bid floors and smart segments','Retention-optimized ad experience','Stronger UA for the same titles'],'learns continuously from every signal')}
+ ],VF_OUTS,VF_HUB)}
  <div style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:6px"><span style="color:#5B50D6;font-weight:700">━</span> flowing today&ensp;·&ensp;<span style="font-weight:700">╌╌</span> to confirm or switch on, see the Vector data checklist in the appendix</div>
  </div>
  ${sec('The roadmap, by timing','chip','s')}
@@ -1595,7 +1605,7 @@ V.vector=`
  <div class="ey">Unity Vector · data activation</div>
  <div class="lead">Unity Vector and your data</div>
  <div class="sublead">Unity Vector is the continuously learning intelligence layer that helps you optimize user acquisition and monetization using signals across the gaming ecosystem. On the supply side it is the model that prices every impression you serve.</div>
- ${takeaway('Better signals, better learning. No single signal is the unlock; each adds a piece of the picture of player behavior and game context. For your titles the signal that can move this quarter is Google Analytics linking: no Editor upgrade, just the data you already collect.')}
+ ${takeaway('Better signals, better learning. No single signal is the unlock; each adds a piece of the picture of player behavior and game context. For your titles the signal that can move this quarter is Google Analytics linking: no SDK change, just the data you already collect.')}
  <div class="lp-notes">
   <div class="lp-note"><span class="lp-badge ea">Remember this</span><h4>Better signals, better learning</h4><p>Signal quality and completeness matter. When data is fragmented or incomplete, the models may have to fill in the blind spots themselves.</p></div>
   <div class="lp-note"><span class="lp-badge ea">Remember this</span><h4>Connect, don't pick and choose</h4><p>No single signal is the unlock. Each adds context. These signals work together, and each one contributes a different piece of the picture of player behavior and game context.</p></div>
@@ -1609,6 +1619,10 @@ V.vector=`
   <div class="st st-a2"><div class="lbl">What a stronger data foundation lets Vector do</div><div class="val" style="font-size:18px;line-height:1.3">Reach players with higher long-term value · scale with greater optimization confidence · improve conversion quality over time</div><div class="note">From the Vector data activation one-pager</div></div>
   <div class="st st-a3"><div class="lbl">Why it matters on the supply side</div><div class="val" style="font-size:18px;line-height:1.3">Better-matched players lift monetization in your apps, and stronger signals support stronger, more stable eCPMs over time</div><div class="note">Impact builds over time and may vary by scale and setup</div></div>
  </div>
+ ${sec('What feeds the model today, and what does not yet','users','s')}
+ <div class="card shotme big" style="padding:16px 14px;margin-bottom:14px">${vectorFlow(VF_INS,VF_OUTS,VF_HUB)}
+ <div style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:6px"><span style="color:#5B50D6;font-weight:700">━</span> flowing today&ensp;·&ensp;<span style="font-weight:700">╌╌</span> to confirm or switch on, see the checklist below. The model works from the complete picture; we do not tie one signal to one outcome.</div>
+ </div>
  ${sec('The signal checklist, with where you stand','plan','s')}
  <div class="cap" style="margin-bottom:10px">Check whether Unity Vector has the signals it needs to optimize effectively. Missing data creates blind spots. Each row is owned by a different team on your side; the first three need no new permission.</div>
  <div class="chk-grid">
@@ -1619,7 +1633,7 @@ V.vector=`
   </div>
   <div class="chk locked"><h4>Additional permission required</h4>
    <div class="chk-item"><span class="cic">🔒</span><div><b>Google Analytics linking <span class="tag-todo" style="margin-left:6px">the one to do now</span></b><span>Adds behavioral context and player engagement signals that attribution alone cannot provide. Link the GA property in the Unity Dashboard, then grant Unity Ads access through Developer Data. No Editor upgrade, no SDK change.</span></div></div>
-   <div class="chk-item"><span class="cic">◻︎</span><div><b>Runtime data (Diagnostics) <span class="tag-ask" style="margin-left:6px">later</span></b><span>Unlocks runtime signals that help provide additional context on how players experience the game. Available on recent Unity Editor versions; your titles are on earlier versions, so this comes after an Editor upgrade, not before.</span></div></div>
+   <div class="chk-item"><span class="cic">◻︎</span><div><b>Runtime data (Diagnostics) <span class="tag-ask" style="margin-left:6px">later</span></b><span>Unlocks runtime signals that help provide additional context on how players experience the game. Available on recent Unity Editor versions and your titles are on Unity 6, so the version is not the blocker. Use for Ads needs its own permission under Developer Data; Unity is publishing official guidance on runtime data shortly, and we will bring that to you rather than guess here.</span></div></div>
    <div class="chk-item"><span class="cic">◻︎</span><div><b>Unity IAP SDK <span class="tag-ask" style="margin-left:6px">to confirm</span></b><span>Strengthens purchase validation and revenue visibility.</span></div></div>
    <div class="chk-item"><span class="cic">◻︎</span><div><b>Developer Data Framework <span class="tag-ask" style="margin-left:6px">with GA</span></b><span>Enables Unity Ads products and services to use eligible runtime and behavioral signals for optimization. One consent in the Unity Dashboard; it is what turns a linked GA property into a signal.</span></div></div>
   </div>
