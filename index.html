@@ -992,7 +992,7 @@ const VF_INS=[
    {t:'Developer Data permission for Unity Ads',on:false},
  ];
 const VF_OUTS=['Fewer blind spots on player behavior','Game context it does not have to infer','Purchase and value signals validated','Earlier learning on your titles'];
-const VF_HUB='one model, one complete picture; no single signal maps to a single result';
+const VF_HUB='one model, the complete picture';
 function vectorFlow(ins, outs, hub){
  const W=1000,H=60+Math.max(ins.length,outs.length)*58; const hx=512, hy=H/2;
  let g='<text x="30" y="26" font-size="11" font-weight="700" fill="'+C.muted+'" letter-spacing="2">SIGNALS IN</text><text x="700" y="26" font-size="11" font-weight="700" fill="'+C.muted+'" letter-spacing="2">WHAT THE MODEL SEES</text>';
