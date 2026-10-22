@@ -1011,6 +1011,15 @@ function vectorFlow(ins, outs, hub){
   g+='<rect x="700" y="'+y+'" width="290" height="38" rx="10" fill="#EDF7F2" stroke="#1F8A5B"/><text x="716" y="'+(y+24)+'" font-size="12.5" font-weight="600" fill="'+C.ink+'">'+t+'</text>';});
  return '<svg class="chart" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet">'+g+'</svg>';
 }
+function owScenarioTable(){return (()=>{const P=DATA.OWP;const T=P.titles;const G=P.genreStats;
+   const scen=(qi)=>{let dau=0,duv=0,rev=0;for(const t of T){const g=G[t.peer]||G[t.alt];const target=qi==null?t.duv:Math.max(t.duv,(g?g.duv[qi]:t.duv));const viewers=t.dau*target;dau+=t.dau;duv+=viewers;rev+=viewers*t.arpduv;}return {dau,reach:duv/dau,arpduv:rev/duv,daily:rev,monthly:rev*365/12,annual:rev*365,arpdau:rev/dau};};
+   const cols=[['Today','Q3, US',null],['Conservative','every title at its genre median reach',1],['Ideal','top quarter of its genre',2],['Optimistic','top 10% of its genre',3]].map(([n,s,qi])=>({n,s,v:scen(qi)}));
+   const fm={dau:v=>v>=1e6?(v/1e6).toFixed(2)+'M':(v/1e3).toFixed(0)+'k',reach:v=>(v*100).toFixed(2)+'%',arpduv:v=>usd(v),daily:v=>money(v),monthly:v=>money(v),annual:v=>money(v),arpdau:v=>'$'+v.toFixed(3)};
+   const rows=[['Daily users (DAU)','dau'],['Engaged users (DUV / DAU)','reach'],['Earnings per viewer (ARPDUV)','arpduv'],['Daily earnings','daily'],['Monthly earnings','monthly'],['Annual est. earnings','annual'],['Earnings per daily user (ARPDAU)','arpdau']];
+   return '<div class="card" style="padding:10px 0;overflow-x:auto;margin-top:14px"><div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;padding:8px 24px 0">What reach is worth, scenario by scenario · US, Jul 1 to Sep 30, 2026 · eight titles</div>'+
+    '<table class="t sg-table" style="min-width:720px;font-size:13px"><thead><tr><th style="padding-left:24px"></th>'+cols.map((c,i)=>'<th style="text-align:right'+(i===0?';color:var(--demandInk)':'')+'">'+c.n+'<div style="font-size:10.5px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0">'+c.s+'</div></th>').join('')+'</tr></thead><tbody>'+
+    rows.map(([lab,k])=>'<tr><td class="lead2" style="padding-left:24px">'+lab+'</td>'+cols.map((c,i)=>'<td class="n" style="'+(i===0?'font-weight:800;background:var(--demandSoft)':'')+'">'+fm[k](c.v[k])+'</td>').join('')+'</tr>').join('')+
+    '</tbody></table><div class="cap" style="padding:8px 24px 4px">Today is your actual US offerwall funnel this quarter across the eight live titles (Scopely and GSN). Each scenario lifts only reach, title by title, to the quartile of that title\'s genre on the Unity offerwall network ('+P.apps+' apps); titles already above the quartile stay where they are. Earnings per viewer, DAU and conversion are held at today\'s values, so every scenario is a reach number, which is what the three levers move. Payout, US only; worldwide is about a fifth higher.</div></div>';})();}
 function sec(title,ic,cls){return `<div class="sec ${cls||''}"><h3>${title}</h3></div>`}
 function nlist(items){return `<ul class="bl">${items.map((it,i)=>`<li><span class="num">${i+1}</span><span>${Array.isArray(it)?`<b>${it[0]}</b> ${it[1]}`:it}</span></li>`).join('')}</ul>`}
 function kpi(lab,val,note,ic,cls){return `<div class="k ${cls||''}"><div class="khead"><div class="kic">${ICON[ic||'coin']}</div><div class="lab">${lab}</div></div><div class="val ${cls||''}">${val}</div><div class="note">${note}</div></div>`}
@@ -1426,15 +1435,7 @@ V.ow_perf=`
   </div>
  </div>
  <div class="callbox" style="margin-top:22px"><h4>What reach is worth, on this quarter's base</h4><p>Lifting portfolio reach from ${(OW.overall.duv*100).toFixed(2)}% to 1.20% of DAU, with conversion and value per converter unchanged, is a <b>${pct(owLift)}</b> lift in offerwall payout, roughly <b>${money(NQ.TJ.pay*owLift)} a quarter</b> on the ${money(NQ.TJ.pay)} base. Assumptions: DAU flat, conversion and ARPDUC hold. Confidence: medium.</p><p style="margin-bottom:0">The three levers on the next page are all reach levers.</p></div>
- ${(()=>{const P=DATA.OWP;const T=P.titles;const G=P.genreStats;
-   const scen=(qi)=>{let dau=0,duv=0,rev=0;for(const t of T){const g=G[t.peer]||G[t.alt];const target=qi==null?t.duv:Math.max(t.duv,(g?g.duv[qi]:t.duv));const viewers=t.dau*target;dau+=t.dau;duv+=viewers;rev+=viewers*t.arpduv;}return {dau,reach:duv/dau,arpduv:rev/duv,daily:rev,monthly:rev*365/12,annual:rev*365,arpdau:rev/dau};};
-   const cols=[['Today','Q3, US',null],['Conservative','every title at its genre median reach',1],['Ideal','top quarter of its genre',2],['Optimistic','top 10% of its genre',3]].map(([n,s,qi])=>({n,s,v:scen(qi)}));
-   const fm={dau:v=>v>=1e6?(v/1e6).toFixed(2)+'M':(v/1e3).toFixed(0)+'k',reach:v=>(v*100).toFixed(2)+'%',arpduv:v=>usd(v),daily:v=>money(v),monthly:v=>money(v),annual:v=>money(v),arpdau:v=>'$'+v.toFixed(3)};
-   const rows=[['Daily users (DAU)','dau'],['Engaged users (DUV / DAU)','reach'],['Earnings per viewer (ARPDUV)','arpduv'],['Daily earnings','daily'],['Monthly earnings','monthly'],['Annual est. earnings','annual'],['Earnings per daily user (ARPDAU)','arpdau']];
-   return '<div class="card" style="padding:10px 0;overflow-x:auto;margin-top:14px"><div style="font-size:12px;font-weight:800;color:var(--demandInk);text-transform:uppercase;letter-spacing:.04em;padding:8px 24px 0">What reach is worth, scenario by scenario · US, Jul 1 to Sep 30, 2026 · eight titles</div>'+
-    '<table class="t sg-table" style="min-width:720px;font-size:13px"><thead><tr><th style="padding-left:24px"></th>'+cols.map((c,i)=>'<th style="text-align:right'+(i===0?';color:var(--demandInk)':'')+'">'+c.n+'<div style="font-size:10.5px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0">'+c.s+'</div></th>').join('')+'</tr></thead><tbody>'+
-    rows.map(([lab,k])=>'<tr><td class="lead2" style="padding-left:24px">'+lab+'</td>'+cols.map((c,i)=>'<td class="n" style="'+(i===0?'font-weight:800;background:var(--demandSoft)':'')+'">'+fm[k](c.v[k])+'</td>').join('')+'</tr>').join('')+
-    '</tbody></table><div class="cap" style="padding:8px 24px 4px">Today is your actual US offerwall funnel this quarter across the eight live titles (Scopely and GSN). Each scenario lifts only reach, title by title, to the quartile of that title\'s genre on the Unity offerwall network ('+P.apps+' apps); titles already above the quartile stay where they are. Earnings per viewer, DAU and conversion are held at today\'s values, so every scenario is a reach number, which is what the three levers move. Payout, US only; worldwide is about a fifth higher.</div></div>';})()}`;
+ ${owScenarioTable()}`;
 
 /* ---------- 07 Offerwall plan ---------- */
 V.ow_plan=`
@@ -2227,6 +2228,7 @@ V.offerwall=`
   </tbody></table>
   <div class="cap" style="padding:8px 20px 4px">Daily US offerwall earnings if reach moved to the peer level with earnings per viewer unchanged; today's figure is reach only. A sizing, not a forecast: reach gains usually bring in lighter users, so value per viewer drifts down as reach goes up. Green where the peer level is above today.</div>
  </div>
+ ${owScenarioTable()}
  ${sec('Offerwall optimization checklist, 2026 edition','star','s')}
  <div class="card" style="padding:6px 0;overflow-x:auto"><table class="t ow-check" style="font-size:12.5px"><thead><tr><th style="padding-left:20px">Lever</th><th>What it does</th><th>Seen elsewhere*</th><th style="text-align:right">Scopely</th></tr></thead><tbody>
  ${[
