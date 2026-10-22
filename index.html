@@ -1112,7 +1112,7 @@ V.welcome=`
   <h1 class="cv-title">Scopely</h1>
   <div class="cv-meta">Q3 2026 Partnership Review · Unity Ads, ironSource Ads and Tapjoy Offerwall · Scopely and GSN Games titles</div>
   <div class="cv-teamlbl">Your Unity team</div>
-  <div class="cv-team"><div class="cv-p"><img class="cv-av" src="${ALON}" alt=""><div class="cv-n">Alon Haliva</div><div class="cv-r">Client Partner, Ads</div></div></div>
+  <div class="cv-team"><div class="cv-p"><img class="cv-av" src="${ALON}" alt=""><div class="cv-n">Alon Haliva</div><div class="cv-r">Client Partner, Ads</div></div><div class="cv-p"><div class="cv-av cv-ini">NG</div><div class="cv-n">Noah Gerard-Grossman</div><div class="cv-r">Senior Manager, Client Partners, Ads</div></div><div class="cv-p"><div class="cv-av cv-ini">SS</div><div class="cv-n">Shadi Stante</div><div class="cv-r">Manager, Client Partners, Ads</div></div><div class="cv-p"><div class="cv-av cv-ini">ND</div><div class="cv-n">Nikko Dauz</div><div class="cv-r">Lead, Partner Management</div></div></div>
   <div class="cv-btns"><button class="cv-btn primary" onclick="go('agenda')">Agenda →</button><button class="cv-btn ghost" onclick="go('overview')">Skip to the numbers</button></div>
  </section>`;
 V.agenda=(function(){
@@ -1702,6 +1702,7 @@ V.vector=`
      ['New information is worth more than more of the same.','Data that tells the model something it did not know can matter a lot; data it already has brings quick but modest gains. Nobody can promise a fixed uplift or timeline.'],
      ['The gains go mostly to the contributor.','Vector learns about your titles mostly from your own data, and the gains compound; there is no scoreboard per data source.'],
     ])}
+    <div class="callbox" style="margin:10px 0 4px"><h4>The question this leaves for you</h4><p style="margin-bottom:0">At 25:05 he puts it plainly: the greatest potential is in information the models do not already know. More of the same data adds limited value; a new signal can reveal behaviour, engagement patterns or context Vector has never seen on your players. So the question is not whether you already share enough data. It is what valuable information Vector might still be missing on your titles, and whether making it available would improve the predictions that price your inventory. For you today that is Google Analytics; runtime is the next one when you are ready.</p></div>
     <div class="strip" style="margin:10px 0 6px">
      <div class="st st-a1"><div class="lbl">Unity Vector, annual run rate</div><div class="val">$1B+</div><div class="note">Vector crossed a $1B run rate in 2026. Public, from Unity's own reporting.</div></div>
      <div class="st st-a2"><div class="lbl">D28 optimizers, in Felix's words</div><div class="val" style="font-size:22px">"fifty to sixty percent better ROAS"</div><div class="note">Campaigns optimized to day 28, measured at day-28 maturity, against day-7 campaigns. His figure from the interview, not a per-title promise.</div></div>
@@ -1716,6 +1717,17 @@ V.vector=`
   <div class="card" style="padding:14px 22px"><div class="fw-kick">What does runtime add that the Ads SDK does not?</div><p class="fw-p" style="font-size:14px;margin:6px 0 0">Unity sits across both the game engine and the ad network. When we say runtime, we mean signals that go beyond what any SDK or mediation layer can see: how a session actually unfolds inside the engine. That is the core difference from other SDK networks. The families of signal are public, below: how players were acquired, how they interact with the game, how game mechanics shape the experience, how players generate value, and how they respond to Unity Ads. The specific fields inside each are not disclosed.</p></div>
  </div>
  <div class="cap" style="margin:8px 0 14px">Wording follows Unity's approved Vector go-to-market messaging, October 2026. For your titles, the signal that can move this quarter is Google Analytics linking, which needs no engine change; runtime stays on the list for when you decide to share it.</div>
+ <div class="card shotme big" style="padding:16px 22px;margin-bottom:14px">
+  <div class="fw-kick">The five signal families Vector learns from</div>
+  <div class="sig-wrap" style="margin-top:10px">
+   <div class="sig"><div class="sk">Acquisition</div><div class="st2">How players were acquired</div><div class="sd">Attribution and campaign context from your MMP.</div></div>
+   <div class="sig"><div class="sk">Player behavior</div><div class="st2">How players interact with the game</div><div class="sd">Sessions, progress, engagement; Google Analytics or runtime.</div></div>
+   <div class="sig"><div class="sk">Game context</div><div class="st2">How game mechanics shape the player experience</div><div class="sd">Genre, economy, pacing; what the game is.</div></div>
+   <div class="sig"><div class="sk">Purchase and value</div><div class="st2">How players generate value</div><div class="sd">IAP, validated purchases, ad revenue per player.</div></div>
+   <div class="sig" style="border-color:var(--demand);background:var(--demandSoft)"><div class="sk" style="color:var(--demandInk)">Unity Ads engagement</div><div class="st2">How players respond to Unity Ads</div><div class="sd">The one you already feed fully, through the SDK on every title.</div></div>
+  </div>
+  <div class="cap" style="margin-top:10px">No one signal tells the whole story. Vector understands how players, games, ads and outcomes connect; the families are public, the fields inside each are not. Your checklist further down maps each family to what is on or off for your titles.</div>
+ </div>
  <div class="grid g2 shotgrid" style="gap:12px">
   <div class="card" style="padding:0;overflow:hidden"><img src="assets/vector_signals.png" style="width:100%;display:block" alt="No one signal tells the whole story"><div style="padding:8px 14px 10px"><div style="font-size:13px;font-weight:800">The five signal families</div><div class="cap" style="padding:3px 0 0">Acquisition, player behavior, game context, purchase and value, Unity Ads engagement. No one signal tells the whole story.</div></div></div>
   <div class="card" style="padding:0;overflow:hidden"><img src="assets/vector_adrev_quality.png" style="width:100%;display:block" alt="Ad revenue quality over time"><div style="padding:8px 14px 10px"><div style="font-size:13px;font-weight:800">Ad revenue quality over time</div><div class="cap" style="padding:3px 0 0">US average D28 ad-revenue ARPU and D7 retention of acquired players, June 2025 to May 2026, with each Vector release marked.</div></div></div>
